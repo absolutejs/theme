@@ -1,0 +1,12 @@
+{
+  "name": "@absolutejs/theme", "version": "0.1.0", "type": "module",
+  "description": "SSR-safe light, dark and system theme preferences for AbsoluteJS applications.",
+  "author": "Alex Kahn", "license": "BSL-1.1",
+  "repository": {"type":"git","url":"git+https://github.com/absolutejs/theme.git"},
+  "exports": {".":{"types":"./dist/index.d.ts","import":"./dist/index.js"},"./react":{"types":"./dist/react.d.ts","import":"./dist/react.js"}},
+  "files": ["dist", "README.md", "LICENSE", "CHANGELOG.md"],
+  "scripts": {"build":"bun build src/index.ts src/react.ts --outdir dist --target browser --external react && tsc --emitDeclarationOnly", "test":"bun test", "typecheck":"tsc --noEmit", "prepublishOnly":"bun run typecheck && bun test && bun run build"},
+  "peerDependencies":{"react":">=18 <20"}, "peerDependenciesMeta":{"react":{"optional":true}},
+  "devDependencies":{"@types/bun":"^1.3.14","@types/react":"^19.2.14","typescript":"5.9.3","react":"19.2.8"},
+  "publishConfig":{"access":"public"}
+}
